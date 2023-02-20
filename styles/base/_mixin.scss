@@ -1,0 +1,17 @@
+@mixin mquery($size) {
+  @if $size==desk {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+  @if $size==ipad {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+  @if $size==mobile {
+    @media (min-width: 600px) {
+      @content;
+    }
+  }
+}
