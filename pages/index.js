@@ -1,16 +1,25 @@
+import { login } from "@/actions/login";
 import Button from "@/components/Buttons/Button";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
 export default function Login() {
   const [details, setDetails] = useState({});
+  const [showError, setShowError] = useState(false);
+  const [showErrorMessage, setShowErrorMessage] = useState("false");
+  const dispatch = useDispatch();
+  const router = useRouter();
   const handleUsername = (e) => {
+    setShowError(false);
     setDetails({
       ...details,
       userName: e.target.value,
     });
   };
   const handlePassword = (e) => {
+    setShowError(false);
     setDetails({
       ...details,
       password: e.target.value,
@@ -18,6 +27,18 @@ export default function Login() {
   };
   const onClick = () => {
     //login api call
+    dispatch(
+      login(details.userName, details.password, (res) => {
+        console.log(res);
+        if (res && res.token) {
+          localStorage.setItem("AuthToken", res.token);
+          router.push("/home");
+        } else {
+          setShowErrorMessage(res.message);
+          setShowError(true);
+        }
+      })
+    );
   };
   return (
     <>
@@ -29,6 +50,7 @@ export default function Login() {
         <div className="login-div">
           <input type="text" onChange={handleUsername} />
           <input type="password" onChange={handlePassword} />
+          
         </div>
       </div>
       <Button
@@ -37,7 +59,8 @@ export default function Login() {
         label={"Login"}
         position="login-button-position"
       />
-      <Link href="/home">Home</Link>
+      {showError && <span>{showErrorMessage}</span>}
+      {/* <Link href="/home">Home</Link> */}
     </>
   );
 }

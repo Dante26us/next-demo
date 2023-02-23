@@ -1,18 +1,17 @@
 import axios from "axios";
 
-export const addthought = (title, description, cb) => (dispatch) => {
-  console.log(title, description);
+export const login = (username, password, cb) => (dispatch) => {
+  console.log(username, password);
   dispatch({ type: "START_LOADING" });
   axios({
     method: "POST",
-    url: "/api/userThoughts/userThoughts",
+    url: "/api/login/login",
     data: {
-      title: title,
-      description: description,
+      username: username,
+      password: password,
     },
     headers: {
       "Content-Type": "application/json",
-      Authorization:localStorage.getItem('AuthToken'),
     },
   })
     .then((response) => {
@@ -26,6 +25,9 @@ export const addthought = (title, description, cb) => (dispatch) => {
     .catch((error) => {
       // dispatch a failure action with the error message
       dispatch({ type: "STOP_LOADING" });
+      if (cb) {
+        cb(error.response.data);
+      }
       // dispatch({ type: "REQUEST_FAILURE", payload: error.message });
     });
 };

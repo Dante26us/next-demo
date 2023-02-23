@@ -1,16 +1,20 @@
 import { addthought } from "@/actions/addThoughtAction";
 import Button from "@/components/Buttons/Button";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 export default function AddThought() {
   const [title, setTitle] = useState("");
+  const router = useRouter();
   const [thought, setThought] = useState("");
   const dispatch = useDispatch();
   const onClick = () => {
     dispatch(
       addthought(title, thought, (res) => {
         console.log(res);
+        if (res && res.message === "thought inserted") router.replace("/home");
+        else router.replace("/");
       })
     );
   };

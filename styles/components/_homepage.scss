@@ -164,6 +164,20 @@ body {
     }
   }
 }
+.home2 {
+  margin-inline: 5vw;
+  margin-top: 5vh;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  h2 {
+    margin-bottom: 5vh;
+  }
+  @include mquery(desk) {
+    
+  }
+}
 .thoughtbox {
   background-color: gray;
   width: 90vw;
