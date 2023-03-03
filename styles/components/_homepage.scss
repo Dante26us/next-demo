@@ -2,12 +2,8 @@
 .login-screen {
   display: flex;
   flex-direction: row;
-  position: fixed;
-  top: 50%;
   justify-content: center;
   width: 100%;
-  align-items: center;
-
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   .login-div {
@@ -38,7 +34,7 @@ body {
   cursor: pointer;
   display: flex;
   justify-content: center;
-  width: 50px;
+  width: 70px;
   // height: 50px;
   align-items: center;
   background-color: rgb(56, 56, 56);
@@ -145,7 +141,7 @@ body {
 }
 .home {
   display: flex;
-  height: 100vh;
+  height: auto;
   flex-direction: column;
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -171,6 +167,7 @@ body {
   height: 100vh;
   flex-direction: column;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
   h2 {
     margin-bottom: 5vh;
   }
@@ -217,5 +214,17 @@ body {
   display: flex;
   justify-content: flex-end;
 }
-.thought-tab {
+.sing-up{
+  display: flex;
+  justify-content: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.login-page{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 }

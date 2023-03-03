@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 export default function Thoughtid(props) {
-  console.log(props);
+  // console.log(props);
   const dispatch = useDispatch();
   dispatch({ type: "STOP_LOADING" });
   return (

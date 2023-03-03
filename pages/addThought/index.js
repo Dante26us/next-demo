@@ -1,4 +1,5 @@
 import { addthought } from "@/actions/addThoughtAction";
+import { loggedOut } from "@/actions/loggedInActions";
 import Button from "@/components/Buttons/Button";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -12,9 +13,12 @@ export default function AddThought() {
   const onClick = () => {
     dispatch(
       addthought(title, thought, (res) => {
-        console.log(res);
+        // console.log(res);
         if (res && res.message === "thought inserted") router.replace("/home");
-        else router.replace("/");
+        else {
+          router.replace("/");
+          dispatch(loggedOut());
+        }
       })
     );
   };

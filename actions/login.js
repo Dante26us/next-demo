@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const login = (username, password, cb) => (dispatch) => {
-  console.log(username, password);
+  // console.log(username, password);
   dispatch({ type: "START_LOADING" });
   axios({
     method: "POST",

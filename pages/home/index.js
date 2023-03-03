@@ -1,4 +1,3 @@
-import { isMobile } from "@/components/IsMobile";
 import ThoughtBox from "@/components/ThoughtBox";
 import LeftSection from "@/containers/HomePage/LeftSection";
 import { MongoClient } from "mongodb";
@@ -57,7 +56,7 @@ export async function getStaticProps() {
   const db = mongo.db();
   const thoughtCollection = db.collection("thoughts");
   const thoughts = await thoughtCollection.find().toArray();
-  console.log(thoughts);
+  // console.log(thoughts);
   mongo.close();
   return {
     props: {

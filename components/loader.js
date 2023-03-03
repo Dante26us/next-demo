@@ -9,9 +9,10 @@ const Loader = () => {
 
   return (
     <>
-      <div className="backdrop"></div>
-      <div className="loader-container">
-        <div className="loader"></div>
+      <div className="backdrop">
+        <div className="loader-container">
+          <div className="loader"></div>
+        </div>
       </div>
     </>
   );

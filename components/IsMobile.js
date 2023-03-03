@@ -1,6 +1,6 @@
 export function isMobile() {
   let isMobile = "";
-  console.log(window,window.screen)
+  // console.log(window,window.screen)
   if (typeof screen.orientation !== 'undefined') {
     switch (screen.orientation.type) {
       case "landscape-primary":

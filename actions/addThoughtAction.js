@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const addthought = (title, description, cb) => (dispatch) => {
-  console.log(title, description);
+  // console.log(title, description);
   dispatch({ type: "START_LOADING" });
   axios({
     method: "POST",
